@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     // Build the Docker image
-                    sh 'docker build -t $DOCKER_IMAGE .'
+                    sh 'docker build -t $DOCKER_IMAGE:latest .'
                 }
             }
         }
@@ -36,7 +36,8 @@ pipeline {
             steps {
                 script {
                     // Push the Docker image to Docker Hub
-                    sh 'docker push $DOCKER_IMAGE'
+                    sh 'docker tag $DOCKER_IMAGE:latest santhoshshelby/jenkis:latest'
+                    sh 'docker push santhoshshelby/jenkis:latest'
                 }
             }
         }
