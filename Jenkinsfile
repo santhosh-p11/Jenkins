@@ -3,14 +3,14 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')  // Reference to the Docker Hub credentials
-        DOCKER_IMAGE = 'santhosh/myapp'  // Replace with your Docker Hub repo
+        DOCKER_IMAGE = 'jenkinsimage'  // Replace with your Docker Hub repo
     }
 
     stages {
         stage('Clone Repository') {
             steps {
                 // Clone the code repository
-                git 'https://github.com/santhosh-p11/Jenkins.git'  // Replace with your GitHub repo
+                 git branch: 'main',  url: 'https://github.com/santhosh-p11/Jenkins.git' // Replace with your GitHub repo
             }
         }
 
